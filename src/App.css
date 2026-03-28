@@ -1,5 +1,33 @@
+:root {
+    --primary-dark: hsla(239, 94%, 19%, 1);
+    --primary-mid: hsla(201, 100%, 36%, 1);
+    --primary-light: hsla(190, 100%, 42%, 1);
+    --frosted-blue: hsla(189, 75%, 75%, 1);
+    --light-cyan: hsla(190, 77%, 88%, 1);
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0
+}
+.main-header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    background-color: var(--primary-light);
+    color: var(--light-cyan);
+}
+.main-navigation {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: flex-end;
+}
+.main-navigation a {
+    padding: 0.5em;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: var(--light-cyan);
+}
+.main-navigation a.active {
+    text-decoration: overline;
 }
 

@@ -1,0 +1,7 @@
+{
+    "navigation" : [
+        {"id":1,"name":"home", "route": "/"},
+        {"id":2,"name":"about", "route": "/about"},
+        {"id":3,"name":"contact", "route": "/contact"}
+    ]
+}
