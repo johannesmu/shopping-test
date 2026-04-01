@@ -26,8 +26,12 @@ body {
     text-decoration: none;
     font-size: 1.2em;
     color: var(--light-cyan);
+    text-transform: capitalize;
 }
 .main-navigation a.active {
     text-decoration: overline;
+}
+.page-content {
+    margin: 1em 2em;
 }
 

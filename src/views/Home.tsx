@@ -1,8 +1,9 @@
-import type { PageProps } from "../interfaces/PageProps"
+import type { ViewProps } from "../interfaces/ViewProps"
+import { Page } from "../components/Page"
 
-export function Home(props:PageProps) {
+export function Home(props:ViewProps) {
     document.title = props.title
     return (
-        <h1>Home</h1>
+        <Page title="Home" clsname="home" />
     )
 }
