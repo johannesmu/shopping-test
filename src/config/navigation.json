@@ -2,6 +2,8 @@
     "navigation" : [
         {"id":1,"name":"home", "route": "/"},
         {"id":2,"name":"about", "route": "/about"},
-        {"id":3,"name":"contact", "route": "/contact"}
+        {"id":3,"name":"contact", "route": "/contact"},
+        {"id":3,"name":"login", "route": "/login"},
+        {"id":3,"name":"signup", "route": "/signup"}
     ]
 }
