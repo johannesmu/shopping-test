@@ -1,3 +1,5 @@
+// import type { SubmitEventHandler } from "react"
+
 import type { SubmitEventHandler } from "react"
 
 interface AuthFormProps {
@@ -5,7 +7,7 @@ interface AuthFormProps {
     title: string
     labels: string[]
     placeholders: string[]
-    submitHandler():SubmitEventHandler
+    submitHandler():void
     submitText:string
 }
 export function AuthForm(props: AuthFormProps) {

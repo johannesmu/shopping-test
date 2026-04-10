@@ -1,9 +1,9 @@
+// import type { SubmitEventHandler } from "react"
 import type { SubmitEventHandler } from "react"
 import { AuthForm } from "../components/AuthForm"
 
 export function Signup() {
-    const signUp = (event:SubmitEventHandler) => {
-        const target = event.target
+    const signUp= () => {
     }
 
     return(
@@ -13,6 +13,8 @@ export function Signup() {
             title="Sign up" 
             labels={["email","password"]}
             placeholders={["you@example.com","minimum 8 characters"]}
+            submitHandler={signUp}
+            submitText="Submit"
             />
         </>
     )
