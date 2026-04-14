@@ -11,7 +11,7 @@ export function Footer( props:IFooterProps ) {
     <footer 
         className="main-footer" 
         style={{
-            backgroundColor: theme.primaryDark,
+            backgroundColor: theme.headerbg,
             color: theme.text
         }}
     >

@@ -1,22 +1,11 @@
+import { type ViewProps } from "../interfaces/ViewProps"
 
-interface FormProps {
-    id:string
-    title:string
-    buttonText: string
-    submitHandler() : Promise<void>
-}
-export function Signup( props:FormProps ) {
+
+export function Signup( props:ViewProps ) {
 
     return(
         <>
-            <form id={props.id} onSubmit={ props.submitHandler }>
-                <h2>{props.title}</h2>
-                <label>Email</label>
-                <input type="email" name="email" placeholder="you@domain.com"/>
-                <label>Password</label>
-                <input type="password" name="email" placeholder="minimum 8 characters"/>
-                <button type="submit">{ props.buttonText }</button>
-            </form>
+            <h1>{ props.title }</h1>
         </>
     )
 }

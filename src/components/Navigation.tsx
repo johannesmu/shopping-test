@@ -8,7 +8,9 @@ export function Navigation(props: NavigationProps) {
     const theme = useAppTheme()
     const Items = props.items.map((item) => {
         return (
-        <a href={item.route} key={item.id} style={{color:theme.primaryLighter, textTransform:'capitalize'}} >
+        <a href={item.route} key={item.id} style={{
+            color:theme.navlink, 
+            textTransform:'capitalize'}} >
             {item.name}
         </a>)
     })
