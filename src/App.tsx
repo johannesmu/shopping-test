@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router'
 import { Home } from "./views/Home"
 import { About } from "./views/About"
 import { Signup } from "./views/Signup"
+import { NotFound } from './views/NotFound'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { useAppTheme } from './hooks/useAppTheme'

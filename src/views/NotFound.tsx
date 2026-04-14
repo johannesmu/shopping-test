@@ -1,8 +1,11 @@
-import { type ViewProps } from "../interfaces/ViewProps";
 
-
-export function NotFound(props:ViewProps) {
+type NotFoundProps = {
+    message: string
+}
+export function NotFound( props:NotFoundProps ) {
     return (
-        <h1>{props.title}</h1>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100%"}}>
+            <h1 className="not-found message">{ props.message }</h1>
+        </div>
     )
 }
