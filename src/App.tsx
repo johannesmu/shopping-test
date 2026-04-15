@@ -7,7 +7,6 @@ import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { useAppTheme } from './hooks/useAppTheme'
 import './App.css'
-import { NotFound } from './views/NotFound'
 
 function App() {
   const theme = useAppTheme()
@@ -25,7 +24,7 @@ function App() {
           <Route path='/about' element={<About title="About" />} />
           <Route path='/signup' element={<Signup title="Sign up" />} />
           <Route path='/about' element={<About title="About" />} />
-          <Route path="*" element={<NotFound title="Page Not Found" />} />
+          <Route path="*" element={<NotFound message="Page Not Found" />} />
         </Routes>
       </main>
       <Footer title="multiply" />
