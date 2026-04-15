@@ -8,7 +8,7 @@ const SignupFormStyle = {
     flexFlow: "column wrap"
 }
 export function Signup( props:ViewProps ) {
-
+    const signUp = (e:SubmitEvent)=> {}
     return(
         <>
             <h1>{ props.title }</h1>
