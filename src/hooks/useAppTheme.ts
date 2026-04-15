@@ -1,15 +1,8 @@
-import { AppTheme } from "../constants/AppTheme";
+import { useContext } from "react"
+import { AppThemeContext } from "../contexts/AppThemeContext"
 
 export function useAppTheme() {
-    
-    const media = window.matchMedia('(prefers-color-scheme: dark)') 
-    if( media.matches ) {
-        console.log('dark')
-        return AppTheme.dark 
-    }
-    else {
-        console.log('light')
-       return AppTheme.light 
-    }
- 
+    const context = useContext(AppThemeContext)
+    if (!context) throw new Error("useAppTheme must be used within an AppThemeProvider")
+    return context
 }

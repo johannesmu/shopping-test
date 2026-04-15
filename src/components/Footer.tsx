@@ -5,7 +5,7 @@ interface IFooterProps {
 }
 
 export function Footer( props:IFooterProps ) {
-    const theme = useAppTheme()
+    const {theme} = useAppTheme()
 
     return (
     <footer 

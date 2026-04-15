@@ -6,10 +6,11 @@ import { NotFound } from './views/NotFound'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { useAppTheme } from './hooks/useAppTheme'
+
 import './App.css'
 
 function App() {
-  const theme = useAppTheme()
+  const {theme} = useAppTheme()
   return (
     <>
       <Header title="multiply" />
