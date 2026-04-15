@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react"
+import type { CSSProperties, FormEvent, SubmitEvent } from "react"
 import { useAppTheme } from "../hooks/useAppTheme"
 
 interface FormProps {
@@ -6,7 +6,9 @@ interface FormProps {
     title: string
     buttonText: string
     style: CSSProperties
+    onSubmit: (e: SubmitEvent<HTMLFormElement>) => void
 }
+
 const FormStyle = {
     form: {
         width: "480px",
@@ -32,13 +34,14 @@ export function AuthForm(props: FormProps) {
         borderRadius: "0.4em",
         marginBottom: "1em"
     }
+
     return (
-        <form id={props.id} style={{ ...props.style }}>
+        <form id={props.id} style={{ ...props.style }} onSubmit={props.onSubmit}>
             <h2>{props.title}</h2>
             <label style={{...FormStyle.label}}>Email</label>
             <input style={{...FormStyle.input, ...InputStyle}} type="email" name="email" placeholder="you@domain.com" />
             <label style={{...FormStyle.label}}>Password</label>
-            <input style={{...FormStyle.input, ...InputStyle}} type="password" name="email" placeholder="minimum 8 characters" />
+            <input style={{...FormStyle.input, ...InputStyle}} type="password" name="password" placeholder="minimum 8 characters" />
             <button type="submit">{props.buttonText}</button>
         </form>
     )
