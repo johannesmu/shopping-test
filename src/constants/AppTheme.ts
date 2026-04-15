@@ -12,13 +12,15 @@ export const AppTheme = {
         background: "#EEEEEE",
         text: "#333333",
         headerbg: themeColors.primaryLight,
-        navlink: themeColors.primaryDarker
+        navlink: themeColors.primaryDarker,
+        border: themeColors.primaryDark
     },
     "dark": {
         background: "#222222",
         text: "#EEEEEE",
         headerbg: themeColors.primaryDark,
-        navlink: themeColors.primaryLight
+        navlink: themeColors.primaryLight,
+        border: themeColors.primaryLight,
     }
 }
 

@@ -1,24 +1,45 @@
-// import type { SubmitEventHandler } from "react"
+import type { CSSProperties } from "react"
+import { useAppTheme } from "../hooks/useAppTheme"
 
-import type { SubmitEventHandler } from "react"
-
-interface AuthFormProps {
-    id:string
+interface FormProps {
+    id: string
     title: string
-    labels: string[]
-    placeholders: string[]
-    submitHandler():void
-    submitText:string
+    buttonText: string
+    style: CSSProperties
 }
-export function AuthForm(props: AuthFormProps) {
+const FormStyle = {
+    form: {
+        width: "480px",
+        display: "flex",
+        flexFlow: "column wrap"
+    },
+    label: {
+        marginBottom: "0.5em"
+    },
+    input: {
+        padding: "0.5em",
+        borderStyle: "solid",
+        borderWidth: "0.1em",
+    }
+}
+
+export function AuthForm(props: FormProps) {
+    const theme = useAppTheme()
+    
+    const InputStyle = {
+        backgroundColor: theme.background,
+        color: theme.text,
+        borderRadius: "0.4em",
+        marginBottom: "1em"
+    }
     return (
-        <form id={ props.id } onSubmit={props.submitHandler()}>
-            <h2>{ props.title }</h2>
-            <label>{ props.labels[0] }</label>
-            <input type="email" name="email" placeholder="you@domain.com" />
-            <label>{ props.labels[1] }</label>
-            <input type="password" name="email" placeholder="minimum 8 characters" />
-            <button type="submit">{ props.submitText }</button>
+        <form id={props.id} style={{ ...props.style }}>
+            <h2>{props.title}</h2>
+            <label style={{...FormStyle.label}}>Email</label>
+            <input style={{...FormStyle.input, ...InputStyle}} type="email" name="email" placeholder="you@domain.com" />
+            <label style={{...FormStyle.label}}>Password</label>
+            <input style={{...FormStyle.input, ...InputStyle}} type="password" name="email" placeholder="minimum 8 characters" />
+            <button type="submit">{props.buttonText}</button>
         </form>
     )
 }
