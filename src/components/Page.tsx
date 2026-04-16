@@ -6,6 +6,7 @@ interface PageProps {
     children: ReactNode
 }
 export function Page(props:PageProps) {
+    document.title = props.title
     return (
         <main className={"page-content "+props.clsname }>
             <h1>{ props.title }</h1>
