@@ -1,5 +1,0 @@
-export const config = {
-    VITE_APPWRITE_PROJECT_ID: "",
-    VITE_APPWRITE_PROJECT_NAME : "",
-    VITE_APPWRITE_ENDPOINT : "",
-}
