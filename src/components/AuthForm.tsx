@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { useAppTheme } from "../hooks/useAppTheme"
 import { UserNameField } from "./UserNameField"
 
-
-
 interface AuthFormProps {
     id: string
     title: string
@@ -13,8 +11,6 @@ interface AuthFormProps {
     style: CSSProperties
     onSubmit: (e: SubmitEvent<HTMLFormElement>) => void
 }
-
-
 
 const FormStyle = {
     form: {
@@ -35,9 +31,19 @@ const FormStyle = {
 }
 
 export function AuthForm(props: AuthFormProps) {
-    const[uemail,setUemail] = useState<string|undefined>()
-    const[upass,setUpass] = useState<string|undefined>()
-    const[formvalid,setFormValid] = useState<{email:boolean|undefined, password:boolean|undefined}>({email: undefined, password: undefined })
+    const[uemail,setUemail] = useState<string|undefined>( undefined )
+    const[upass,setUpass] = useState<string|undefined>( undefined )
+    const[uname,setUname] = useState<string | undefined>( undefined )
+    const[formvalid,setFormValid] = useState<{
+        email:boolean|undefined, 
+        password:boolean|undefined,
+        username:boolean|undefined
+    }>
+    ({
+        email: undefined, 
+        password: undefined,
+        username: undefined
+    })
     const { theme } = useAppTheme()
 
     // email validation
@@ -45,7 +51,7 @@ export function AuthForm(props: AuthFormProps) {
         if( uemail && uemail.length < 6 ) { return }
         else if(uemail) {
             //// FORMAT CHECK
-            // find '@'
+            // find the position of '@'
             const at:number = uemail.indexOf('@')
             // find the first '.' from end
             const dot:number = uemail.lastIndexOf('.')
@@ -67,6 +73,7 @@ export function AuthForm(props: AuthFormProps) {
     // password validation
      useEffect(()=>{
         if( !upass ) { return }
+        // check for non alphanumeric
         else if( upass ) {
             if( /[^\p{L}\p{N}]/u.test(upass) ) {
                 //console.log("valid")
@@ -78,6 +85,18 @@ export function AuthForm(props: AuthFormProps) {
             }
         }
     },[upass])
+
+    // username validation
+    useEffect(()=>{
+        if( !uname ) { return }
+        const isalphanumeric = /^\S+$/.test(uname) && !/[^\p{L}\p{N}]/u.test(uname)
+        if( isalphanumeric ) {
+            setFormValid({...formvalid, username: true })
+        }
+        else {
+            setFormValid({...formvalid, username: false })
+        }
+    },[uname])
 
     useEffect( () => {
         console.log( formvalid )
@@ -101,14 +120,19 @@ export function AuthForm(props: AuthFormProps) {
         margin: "1em 0px"
     }
 
-    
-
     return (
         <form id={props.id} style={{ ...props.style }} onSubmit={props.onSubmit}>
             <h2>{props.title}</h2>
             <UserNameField 
                 signupmode={ (props.mode == "signup") ? true : false } 
-                style={{...InputStyle, ...FormStyle.input}}
+                style={{
+                    ...InputStyle, 
+                    ...FormStyle.input,
+                    borderColor: (formvalid.username) ? theme.valid : (formvalid.username == false) ? theme.invalid : "",
+                    outlineColor: (formvalid.username) ? theme.valid : (formvalid.username == false) ? theme.invalid : "",
+                }}
+                changeHandler={ (e:ChangeEvent<HTMLInputElement>) => setUname(e.target.value) }
+                value={ uname }
             />
             <label htmlFor="email" style={{ ...FormStyle.label }}>Email</label>
             <input 

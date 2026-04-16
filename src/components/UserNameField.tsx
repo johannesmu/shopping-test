@@ -1,8 +1,10 @@
-import type { CSSProperties } from "react"
+import type { ChangeEvent, CSSProperties } from "react"
 
 interface UserNameFieldProps {
     signupmode: boolean
     style: CSSProperties
+    value: string | undefined
+    changeHandler: (e:ChangeEvent<HTMLInputElement>) => void
 }
 
 export function UserNameField (props: UserNameFieldProps){
@@ -16,6 +18,7 @@ export function UserNameField (props: UserNameFieldProps){
                         name="username"
                         placeholder="minimum 3 characters"
                         id="username"
+                        onChange={ props.changeHandler }
                     />
                 </>
             )
