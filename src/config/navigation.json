@@ -3,7 +3,7 @@
         {"id":1,"name":"home", "route": "/"},
         {"id":2,"name":"about", "route": "/about"},
         {"id":3,"name":"contact", "route": "/contact"},
-        {"id":3,"name":"login", "route": "/login"},
-        {"id":3,"name":"signup", "route": "/signup"}
+        {"id":4,"name":"login", "route": "/login"},
+        {"id":5,"name":"signup", "route": "/signup"}
     ]
 }
