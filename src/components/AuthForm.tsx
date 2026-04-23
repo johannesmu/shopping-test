@@ -1,7 +1,6 @@
 import type { ChangeEvent, CSSProperties, SubmitEvent} from "react"
 import { useState, useEffect } from 'react'
 import { useAppTheme } from "../hooks/useAppTheme"
-import { UserNameField } from "./UserNameField"
 
 interface AuthFormProps {
     id: string
@@ -33,16 +32,13 @@ const FormStyle = {
 export function AuthForm(props: AuthFormProps) {
     const[uemail,setUemail] = useState<string|undefined>( undefined )
     const[upass,setUpass] = useState<string|undefined>( undefined )
-    const[uname,setUname] = useState<string | undefined>( undefined )
     const[formvalid,setFormValid] = useState<{
         email:boolean|undefined, 
-        password:boolean|undefined,
-        username:boolean|undefined
+        password:boolean|undefined
     }>
     ({
         email: undefined, 
-        password: undefined,
-        username: undefined
+        password: undefined
     })
     const { theme } = useAppTheme()
 
@@ -87,16 +83,16 @@ export function AuthForm(props: AuthFormProps) {
     },[upass])
 
     // username validation
-    useEffect(()=>{
-        if( !uname ) { return }
-        const isalphanumeric = /^\S+$/.test(uname) && !/[^\p{L}\p{N}]/u.test(uname)
-        if( isalphanumeric ) {
-            setFormValid({...formvalid, username: true })
-        }
-        else {
-            setFormValid({...formvalid, username: false })
-        }
-    },[uname])
+    // useEffect(()=>{
+    //     if( !uname ) { return }
+    //     const isalphanumeric = /^\S+$/.test(uname) && !/[^\p{L}\p{N}]/u.test(uname)
+    //     if( isalphanumeric ) {
+    //         setFormValid({...formvalid, username: true })
+    //     }
+    //     else {
+    //         setFormValid({...formvalid, username: false })
+    //     }
+    // },[uname])
 
     useEffect( () => {
         console.log( formvalid )
@@ -123,17 +119,6 @@ export function AuthForm(props: AuthFormProps) {
     return (
         <form id={props.id} style={{ ...props.style }} onSubmit={props.onSubmit}>
             <h2>{props.title}</h2>
-            <UserNameField 
-                signupmode={ (props.mode == "signup") ? true : false } 
-                style={{
-                    ...InputStyle, 
-                    ...FormStyle.input,
-                    borderColor: (formvalid.username) ? theme.valid : (formvalid.username == false) ? theme.invalid : "",
-                    outlineColor: (formvalid.username) ? theme.valid : (formvalid.username == false) ? theme.invalid : "",
-                }}
-                changeHandler={ (e:ChangeEvent<HTMLInputElement>) => setUname(e.target.value) }
-                value={ uname }
-            />
             <label htmlFor="email" style={{ ...FormStyle.label }}>Email</label>
             <input 
                 style={{ 
@@ -164,7 +149,18 @@ export function AuthForm(props: AuthFormProps) {
                 value={upass}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setUpass(e.target.value)}
             />
-            <button type="submit" style={{...ButtonStyle}}>{props.buttonText}</button>
+            <button 
+                type="submit" 
+                style={(
+                    formvalid.email==true &&
+                    formvalid.password==true
+                )
+                    ? {...ButtonStyle} : {...ButtonStyle, color: theme.buttonInvalidText}}
+                disabled={(formvalid.email && formvalid.password)? false: true }
+                
+            >
+                {props.buttonText}
+            </button>
         </form>
     )
 }

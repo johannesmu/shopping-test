@@ -21,6 +21,7 @@ export const AppTheme = {
         valid: themeColors.validLight,
         invalid: themeColors.invalidLight,
         button: themeColors.primaryLighter,
+        buttonInvalidText: themeColors.primaryDarker,
     },
     "dark": {
         background: "#222222",
@@ -31,6 +32,7 @@ export const AppTheme = {
         valid: themeColors.validDark,
         invalid: themeColors.invalidDark,
         button: themeColors.primaryDarker,
+        buttonInvalidText: themeColors.primaryMid,
     }
 }
 
