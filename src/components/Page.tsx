@@ -1,16 +1,18 @@
-import { type ReactNode } from "react"
-
+import { useEffect, type ReactNode } from 'react'
 interface PageProps {
     title: string
     clsname: string
+    doctitle?: string|null
     children: ReactNode
 }
 export function Page(props:PageProps) {
-    document.title = props.title
+    useEffect( () => {
+        document.title = props.title
+    },[ props.title ])
     return (
-        <main className={"page-content "+props.clsname }>
+        <div className={"page-content "+ props.clsname }>
             <h1>{ props.title }</h1>
             {props.children}
-        </main>
+        </div>
     )
 }
