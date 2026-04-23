@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 
 import { AppTheme } from '../constants/AppTheme';
-import { type IAppTheme } from '../constants/AppTheme';
+import { type IAppTheme } from '../interfaces/AppTheme';
 
 
 

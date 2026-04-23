@@ -11,7 +11,10 @@ interface HeaderProps {
 export function Header( props:HeaderProps ) {
     const theme = useAppTheme()
     return(
-        <header className="main-header" style={{backgroundColor: theme.primaryDark}}>
+        <header 
+        className="main-header" 
+        style={{backgroundColor: theme.headerbg, color: theme.text}}
+        >
             <h1 className="title">{ props.title }</h1>
             <Navigation items={navitems.navigation} clsName="main-navigation"/>
         </header>

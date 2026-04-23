@@ -5,13 +5,13 @@ interface IFooterProps {
 }
 
 export function Footer( props:IFooterProps ) {
-    const theme = useAppTheme()
+    const {theme} = useAppTheme()
 
     return (
     <footer 
         className="main-footer" 
         style={{
-            backgroundColor: theme.primaryDark,
+            backgroundColor: theme.headerbg,
             color: theme.text
         }}
     >
