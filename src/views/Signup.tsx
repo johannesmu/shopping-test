@@ -1,24 +1,33 @@
 // import type { SubmitEventHandler } from "react"
-import { AuthForm } from "../components/AuthForm"
 import type { ViewProps } from "../interfaces/ViewProps"
 import { Page } from "../components/Page"
+import { FormField } from "../components/FormField"
+import { useState } from "react"
+import { useAppTheme } from "../hooks/useAppTheme"
 
+export function Signup(props: ViewProps) {
+    const[uname,setUname] = useState<string|undefined>(undefined)
 
-export function Signup( props:ViewProps) {
+    const theme = useAppTheme()
 
-    const signUp= () => {
+    const FieldStyle = {
+        backgroundColor: theme.colorScheme
     }
 
-    return(
+    return (
         <Page title={props.title} clsname="signup">
-            <AuthForm 
-            id="signup"
-            title="Sign up" 
-            labels={["email","password"]}
-            placeholders={["you@example.com","minimum 8 characters"]}
-            submitHandler={signUp}
-            submitText="Submit"
-            />
+            <form>
+                <FormField
+                    type="text"
+                    name="username"
+                    placeholder="At least 4 characters"
+                    id="username"
+                    label="Choose a username"
+                    value={uname}
+                    style={}
+                    changeHandler={ () => setUname() }
+                />
+            </form>
         </Page>
     )
 }

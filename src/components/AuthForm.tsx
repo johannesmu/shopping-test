@@ -8,7 +8,7 @@ interface AuthFormProps {
     buttonText: string
     mode: "signup" | "login"
     style: CSSProperties
-    onSubmit: (e: SubmitEvent<HTMLFormElement>) => void
+    submitHandler: (e: SubmitEvent<HTMLFormElement>) => void
 }
 
 const FormStyle = {
@@ -117,7 +117,11 @@ export function AuthForm(props: AuthFormProps) {
     }
 
     return (
-        <form id={props.id} style={{ ...props.style }} onSubmit={props.onSubmit}>
+        <form 
+            id={props.id} 
+            style={{ ...props.style }} 
+            onSubmit={props.submitHandler}
+        >
             <h2>{props.title}</h2>
             <label htmlFor="email" style={{ ...FormStyle.label }}>Email</label>
             <input 
