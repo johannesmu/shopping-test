@@ -6,15 +6,15 @@ type FormField = {
     id:string
     label: string
     value: string|undefined
-    style: CSSProperties
-    changeHandler: (e:string) => void
+    style: undefined|CSSProperties
+    changeHandler: (e:ChangeEvent<HTMLInputElement>) => void
 }
 
 export function InputField(props:FormField) {
     //support only for text,email at the moment
     return (
         <div className='form-group'>
-            <label>{ props.label }</label>
+            <label htmlFor={props.id}>{ props.label }</label>
             <input 
                 type={ props.type } 
                 name={ props.name } 
