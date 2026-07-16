@@ -1,14 +1,18 @@
 // import type { SubmitEventHandler } from "react"
 import type { ViewProps } from "../interfaces/ViewProps"
 import { Page } from "../components/Page"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useAppTheme } from "../hooks/useAppTheme"
 import { InputField } from "../components/forms/InputField"
+
+
 
 export function Signup(props: ViewProps) {
     const[username,setUserName] = useState<undefined|string>()
 
     const theme = useAppTheme()
+
+    useEffect( () => {}, [username])
 
     return (
         <Page title={props.title} clsname="signup">
@@ -19,8 +23,7 @@ export function Signup(props: ViewProps) {
                     placeholder="minimum 4 characters, no spaces"
                     id="uname"
                     label="Username"
-                    value={username}
-                    changeHandler={(e) => setUserName(e.target.value)}
+                    style={null}
                 />
             </form>
         </Page>

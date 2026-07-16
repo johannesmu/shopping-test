@@ -1,13 +1,11 @@
 import { type ChangeEvent, type CSSProperties } from 'react'
-type FormField = {
+export type FormField = {
     type:string
     name:string
     placeholder:string
     id:string
     label: string
-    value: string|undefined
-    style: undefined|CSSProperties
-    changeHandler: (e:ChangeEvent<HTMLInputElement>) => void
+    style: null|CSSProperties
 }
 
 export function InputField(props:FormField) {
