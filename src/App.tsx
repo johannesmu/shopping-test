@@ -3,6 +3,7 @@ import { Home } from "./views/Home"
 import { About } from "./views/About"
 import { Signup } from "./views/Signup"
 import { Login } from "./views/Login"
+import { Contact } from "./views/Contact"
 import { NotFound } from './views/NotFound'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
@@ -27,6 +28,7 @@ function App() {
           <Route path='/signup' element={<Signup title="Sign up" />} />
           <Route path='/login' element={<Login title="Log in" />} />
           <Route path='/about' element={<About title="About" />} />
+          <Route path='/contact' element={<Contact title="Contact us" />} />
           <Route path="*" element={<NotFound message="Page Not Found" />} />
         </Routes>
       </main>

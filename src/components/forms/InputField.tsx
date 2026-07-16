@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type CSSProperties } from 'react'
+import { type ChangeEvent, type CSSProperties } from 'react'
 type FormField = {
     type:string
     name:string
@@ -9,7 +9,9 @@ type FormField = {
     style: CSSProperties
     changeHandler: (e:string) => void
 }
-export function FormField(props:FormField) {
+
+export function InputField(props:FormField) {
+    //support only for text,email at the moment
     return (
         <div className='form-group'>
             <label>{ props.label }</label>
