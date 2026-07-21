@@ -1,4 +1,5 @@
 import { InputField, type FormField } from "./InputField"
+import { type ChangeEvent } from "react"
 
 interface ValidatedInputProps extends FormField {
     valid: boolean
@@ -9,12 +10,12 @@ interface ValidatedInputProps extends FormField {
 export function ValidatedInput(props: ValidatedInputProps) {
     return (
         <InputField
-            type={]props.type }
+            type={ props.type } 
             name={ props.name }
-            placeholder="minimum 4 characters, no spaces"
-            id="uname"
-            label="Username"
-            style={null}
+            placeholder={ props.placeholder }
+            id={ props.id }
+            label={ props.label }
+            style={ props.style }
         />
     )
 }
