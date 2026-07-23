@@ -9,6 +9,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 #root {
     display: grid;
@@ -40,5 +41,41 @@ body {
 .page-content {
     margin: 1em 2em;
 }
-
+.page-title {
+    text-align: center;
+}
+.authform {
+    margin: 1em auto;
+    width: min(80vw,480px);
+    display: flex;
+    flex-flow: column nowrap;
+}
+.form-label {
+    display: block;
+}
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border-style: solid;
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+}
+.form-group {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 1em;
+}
+.form-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    border-radius: 0.4rem;
+    border-style: solid;
+    margin: 1em auto;
+}
+.form-button::disabled {
+    opacity: 0.6;
+}
 

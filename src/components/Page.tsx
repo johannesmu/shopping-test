@@ -11,7 +11,7 @@ export function Page(props:PageProps) {
     },[ props.title ])
     return (
         <div className={"page-content "+ props.clsname }>
-            <h1>{ props.title }</h1>
+            <h1 className="page-title">{ props.title }</h1>
             {props.children}
         </div>
     )
