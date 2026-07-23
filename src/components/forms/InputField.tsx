@@ -1,4 +1,6 @@
-import { type ChangeEvent, type CSSProperties } from 'react'
+import { 
+    // type ChangeEvent, 
+    type CSSProperties } from 'react'
 export type FormField = {
     type:string
     name:string
@@ -19,8 +21,8 @@ export function InputField(props:FormField) {
                 placeholder={ props.placeholder }
                 id={ props.id }
                 style={{...props.style}}
-                value={props.value}
-                onChange={ (e:ChangeEvent<HTMLInputElement>) => props.changeHandler(e.target.value)}
+                // value={props.value}
+                // onChange={ (e:ChangeEvent<HTMLInputElement>) => props.changeHandler(e.target.value)}
             />
         </div>
     )

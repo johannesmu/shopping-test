@@ -9,6 +9,7 @@ interface ValidatedInputProps extends FormField {
 
 export function ValidatedInput(props: ValidatedInputProps) {
     return (
+        <>
         <InputField
             type={ props.type } 
             name={ props.name }
@@ -17,5 +18,6 @@ export function ValidatedInput(props: ValidatedInputProps) {
             label={ props.label }
             style={ props.style }
         />
+        </>
     )
 }
